@@ -1,24 +1,39 @@
-
 {
-    "version": 8,
-    "name": "HERE Raster Tiles",
-    "sources": {
-      "here-raster": {
-        "type": "raster",
-        "tiles": [
-          "https://maps.hereapi.com/v3/base/mc/{z}/{x}/{y}/png?apiKey=VWO1gX0KWUkQ1UiYBT2murS-tIP7XsqyfCcAQqHm9f4"
-        ],
-        "tileSize": 256,
-        "minzoom": 0,
-        "maxzoom": 20
+  "version": 8,
+  "name": "Map with Route (Vector)",
+  "sources": {
+    "here-vector": {
+      "type": "vector",
+      "tiles": [
+        "https://vector.hereapi.com/v2/vectortiles/base/mc/{z}/{x}/{y}/mvt?apiKey=VWO1gX0KWUkQ1UiYBT2murS-tIP7XsqyfCcAQqHm9f4"
+      ],
+      "minzoom": 0,
+      "maxzoom": 20
+    },
+    "route-source": {
+      "type": "geojson",
+      "data": {}
+    }
+  },
+  "layers": [
+    {
+      "id": "vector-layer",
+      "type": "line",
+      "source": "here-vector",
+      "source-layer": "transportation",
+      "paint": {
+        "line-color": "#FF5733",
+        "line-width": 2
       }
     },
-    "layers": [
-      {
-        "id": "raster-layer",
-        "type": "raster",
-        "source": "here-raster"
+    {
+      "id": "route-layer",
+      "type": "line",
+      "source": "route-source",
+      "paint": {
+        "line-color": "#FF5733",
+        "line-width": 4
       }
-    ]
-  }
-  
+    }
+  ]
+}
