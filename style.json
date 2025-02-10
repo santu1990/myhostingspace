@@ -5,7 +5,7 @@
       "here-raster": {
         "type": "raster",
         "tiles": [
-          "https://maps.hereapi.com/v3/base/mc/{z}/{x}/{y}/png?apiKey=VWO1gX0KWUkQ1UiYBT2murS-tIP7XsqyfCcAQqHm9f4"
+          "https://maps.hereapi.com/v3/base/mc/{z}/{x}/{y}/png8?style=explore.day&apiKey=VWO1gX0KWUkQ1UiYBT2murS-tIP7XsqyfCcAQqHm9f4"
         ],
         "tileSize": 256,
         "minzoom": 0,
