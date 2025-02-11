@@ -13,9 +13,7 @@
     },
     "route-source": {
       "type": "geojson",
-      "data": {
-        
-      }
+      "data": {}
     }
   },
   "layers": [
@@ -31,18 +29,11 @@
       "paint": {
         "line-color": [
           "match",
-          [
-            "get",
-            "congestion"
-          ],
-          "low",
-          "#2ECC71",
-          "moderate",
-          "#F1C40F",
-          "heavy",
-          "#E67E22",
-          "severe",
-          "#E74C3C",
+          ["get", "congestion"],
+          "low", "#2ECC71",
+          "moderate", "#F1C40F",
+          "heavy", "#E67E22",
+          "severe", "#E74C3C",
           "#3498DB"
         ],
         "line-width": 4
