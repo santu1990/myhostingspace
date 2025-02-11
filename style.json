@@ -1,35 +1,52 @@
 {
-    "version": 8,
-    "name": "Map with Route and Traffic",
-    "sources": {
-      "here-raster": {
-        "type": "raster",
-        "tiles": [
-          "https://maps.hereapi.com/v3/base/mc/{z}/{x}/{y}/png8?style=explore.day&apiKey=VWO1gX0KWUkQ1UiYBT2murS-tIP7XsqyfCcAQqHm9f4"
-        ],
-        "tileSize": 256,
-        "minzoom": 0,
-        "maxzoom": 20
-      },
-      "route-source": {
-        "type": "geojson",
-        "data": {}
-      }
+  "version": 8,
+  "name": "Map with Route and Traffic",
+  "sources": {
+    "here-raster": {
+      "type": "raster",
+      "tiles": [
+        "https://maps.hereapi.com/v3/base/mc/{z}/{x}/{y}/png8?style=explore.day&apiKey=VWO1gX0KWUkQ1UiYBT2murS-tIP7XsqyfCcAQqHm9f4"
+      ],
+      "tileSize": 256,
+      "minzoom": 0,
+      "maxzoom": 20
     },
-    "layers": [
-      {
-        "id": "raster-layer",
-        "type": "raster",
-        "source": "here-raster"
-      },
-      {
-        "id": "route-layer",
-        "type": "line",
-        "source": "route-source",
-        "paint": {
-          "line-color": ["get", "color"],
-          "line-width": 4
-        }
+    "route-source": {
+      "type": "geojson",
+      "data": {
+        
       }
-    ]
-  }  
+    }
+  },
+  "layers": [
+    {
+      "id": "raster-layer",
+      "type": "raster",
+      "source": "here-raster"
+    },
+    {
+      "id": "route-layer",
+      "type": "line",
+      "source": "route-source",
+      "paint": {
+        "line-color": [
+          "match",
+          [
+            "get",
+            "congestion"
+          ],
+          "low",
+          "#2ECC71",
+          "moderate",
+          "#F1C40F",
+          "heavy",
+          "#E67E22",
+          "severe",
+          "#E74C3C",
+          "#3498DB"
+        ],
+        "line-width": 4
+      }
+    }
+  ]
+}
